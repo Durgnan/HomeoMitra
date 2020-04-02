@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".SignupActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+
+        android:orientation="vertical"
+
+        android:layout_height="match_parent">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:inputType="text"
+            android:hint="Enter Email-ID"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/email"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:inputType="text"
+            android:hint="Enter First Name"
+            android:textAlignment="center"
+            android:layout_marginVertical="10dp"
+            android:id="@+id/fname"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:inputType="text"
+            android:hint="Enter Last Name"
+            android:textAlignment="center"
+            android:layout_marginVertical="10dp"
+            android:id="@+id/lname"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:inputType="textPassword"
+            android:hint="Enter password"
+            android:textAlignment="center"
+            android:layout_marginVertical="10dp"
+            android:id="@+id/password"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:inputType="textPassword"
+            android:hint="Confirm password"
+            android:textAlignment="center"
+            android:layout_marginVertical="10dp"
+            android:id="@+id/cfpassword"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:inputType="phone"
+            android:hint="Enter phone number"
+
+            android:textAlignment="center"
+            android:layout_marginVertical="10dp"
+            android:id="@+id/phone"/>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:id="@+id/radioGrp"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white"
+                android:paddingHorizontal="5dp"
+                android:checked="true"
+
+                android:id="@+id/patientRadio"
+                android:text="Patient"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white"
+                android:layout_marginHorizontal="8dp"
+                android:paddingHorizontal="5dp"
+                android:id="@+id/doctorRadio"
+                android:text="Doctor"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white"
+                android:paddingHorizontal="5dp"
+                android:id="@+id/pharmacyRadio"
+                android:text="Pharmacy"/>
+        </RadioGroup>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:id="@+id/patientPharmacyData"
+           android:visibility="visible"
+           android:orientation="vertical"
+           android:layout_height="wrap_content">
+           <EditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@drawable/bg_white"
+               android:maxLines="1"
+               android:padding="8dp"
+               android:inputType="text"
+               android:hint="Area, Locality"
+
+               android:textAlignment="center"
+               android:layout_marginVertical="10dp"
+               android:id="@+id/area"/>
+           <EditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@drawable/bg_white"
+               android:maxLines="1"
+               android:padding="8dp"
+               android:inputType="text"
+               android:hint="Address"
+
+               android:textAlignment="center"
+               android:layout_marginVertical="10dp"
+               android:id="@+id/address"/>
+           <EditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@drawable/bg_white"
+               android:maxLines="1"
+               android:padding="8dp"
+               android:inputType="text"
+               android:hint="Landmark"
+
+               android:textAlignment="center"
+               android:layout_marginVertical="10dp"
+               android:id="@+id/landmark"/>
+           <EditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@drawable/bg_white"
+               android:maxLines="1"
+               android:padding="8dp"
+               android:inputType="number"
+               android:maxLength="6"
+               android:hint="Pincode"
+
+               android:textAlignment="center"
+               android:layout_marginVertical="10dp"
+               android:id="@+id/pincode"/>
+           <EditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@drawable/bg_white"
+               android:maxLines="1"
+               android:padding="8dp"
+               android:inputType="text"
+               android:hint="City"
+
+               android:textAlignment="center"
+               android:layout_marginVertical="10dp"
+               android:id="@+id/city"/>
+
+       </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/doctorData"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:inputType="text"
+                android:hint="Location"
+
+                android:textAlignment="center"
+                android:layout_marginVertical="10dp"
+                android:id="@+id/location"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:inputType="text"
+                android:hint="Degree"
+
+                android:textAlignment="center"
+                android:layout_marginVertical="10dp"
+                android:id="@+id/degree"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:inputType="text"
+                android:hint="Specialization"
+
+                android:textAlignment="center"
+                android:layout_marginVertical="10dp"
+                android:id="@+id/spec"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:inputType="text"
+                android:hint="Days open(Seperated by commas)"
+
+                android:textAlignment="center"
+                android:layout_marginVertical="10dp"
+                android:id="@+id/dayOpen"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:inputType="text"
+                android:hint="Timings (Enter slots with dash \nbetween times and \ncommas between slots)"
+
+                android:textAlignment="center"
+                android:layout_marginVertical="10dp"
+                android:id="@+id/timeSlots"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/saveImage"
+                    android:textColor="#e5e5e5"
+                    android:background="@drawable/bg_btn"
+                    android:text="Open"/>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:id="@+id/saveImageText"
+                    android:layout_marginLeft="15dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_white"
+                    android:text="Choose Image"/>
+
+            </LinearLayout>
+
+            </LinearLayout>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/submit"
+            android:layout_margin="15dp"
+            android:textColor="#e5e5e5"
+            android:background="@drawable/bg_btn"
+            android:text="Submit"/>
+
+
+
+
+
+
+
+    </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
