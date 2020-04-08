@@ -18,6 +18,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class SplashActivity extends AppCompatActivity {
     Handler handler;
@@ -39,11 +40,30 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                if(isUserLoggedIn.equals(""))
-                    startActivity(new Intent(SplashActivity.this, ValidationActivity.class));
-                else
-                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                if(isUserLoggedIn.equals("")){
 
+
+
+
+                    startActivity(new Intent(SplashActivity.this, ValidationActivity.class));
+                }
+
+                else {
+                    switch (pref.getString("TYPE",""))
+                    {
+                        case "DOCTOR":
+                            startActivity(new Intent(SplashActivity.this, DoctorLandingActivity.class));
+                            break;
+                        case "PATIENT":
+                            startActivity(new Intent(SplashActivity.this, PatientLandingActivity.class));
+                            break;
+                        case "PHARMACY":
+                            startActivity(new Intent(SplashActivity.this, PharmacyLandingActivity.class));
+                            break;
+
+                    }
+
+                }
 
 
                 overridePendingTransition(R.anim.slide_to_left, R.anim.slide_to_right);

@@ -81,7 +81,7 @@ public class ValidationActivity extends AppCompatActivity {
                     {
                         login.setEnabled(false);
                         login.setText("Verifying...");
-                        String login_url = "ENTER_YOUR_OWN_URL";
+                        String login_url = "https://3jnfpzq1q9.execute-api.ap-south-1.amazonaws.com/prod/HM_Login";
                         JSONObject jsonObject= new JSONObject();
                         try {
                             jsonObject.put("MODE","LOGIN");
@@ -122,11 +122,27 @@ public class ValidationActivity extends AppCompatActivity {
                                     else if(response.getString("message").equals("SUCCESS"))
                                     {
 
-                                        Intent intent = new Intent(ValidationActivity.this, MainActivity.class);
+                                        String type = response.getString("TYPE");
+                                        Intent intent = null;
+                                        switch (type)
+                                        {
+                                            case "DOCTOR":
+                                            intent = new Intent(ValidationActivity.this, DoctorLandingActivity.class);
+                                            break;
+                                            case "PATIENT":
+                                                intent = new Intent(ValidationActivity.this, PatientLandingActivity.class);
+                                                break;
+                                            case "PHARMACY":
+                                                intent = new Intent(ValidationActivity.this, PharmacyLandingActivity.class);
+                                                break;
+                                        }
+
+
 
 
                                         login.setText("Good to go!");
 //                                        editor.putString("username",u);
+//                                        editor.putString("TYPE",type);
 //                                        editor.apply();
 //                                        editor.commit();
                                         startActivity(intent);
