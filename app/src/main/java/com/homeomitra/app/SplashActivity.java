@@ -1,12 +1,18 @@
 package com.homeomitra.app;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -20,6 +26,8 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+
         final ImageView img = findViewById(R.id.logo);
         Animation aniFade = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.splash_screen_fade);
 
@@ -45,4 +53,5 @@ public class SplashActivity extends AppCompatActivity {
         },1500);
 
     }
+
 }

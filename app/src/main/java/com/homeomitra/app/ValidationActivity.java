@@ -1,9 +1,14 @@
 package com.homeomitra.app;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -38,6 +43,13 @@ public class ValidationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_validation);
 
+
+        if (checkPermissions())
+        {}
+        else
+        {
+            requestPermission();
+        }
         pref = getSharedPreferences("HomeoMitra",MODE_PRIVATE);
         editor = pref.edit();
 
@@ -69,7 +81,7 @@ public class ValidationActivity extends AppCompatActivity {
                     {
                         login.setEnabled(false);
                         login.setText("Verifying...");
-                        String login_url = "INSERT_URL_HERE";
+                        String login_url = "ENTER_YOUR_OWN_URL";
                         JSONObject jsonObject= new JSONObject();
                         try {
                             jsonObject.put("MODE","LOGIN");
@@ -114,9 +126,9 @@ public class ValidationActivity extends AppCompatActivity {
 
 
                                         login.setText("Good to go!");
-                                        editor.putString("username",u);
-                                        editor.apply();
-                                        editor.commit();
+//                                        editor.putString("username",u);
+//                                        editor.apply();
+//                                        editor.commit();
                                         startActivity(intent);
                                         finish();
                                     }
@@ -164,5 +176,52 @@ public class ValidationActivity extends AppCompatActivity {
 
 
 
+    }
+    public boolean checkPermissions()
+    {
+
+        int internet = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.INTERNET);
+        int camera = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA);
+        int writes = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int reads = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE);
+        Log.e("MGG",internet+""+writes+""+reads);
+
+        return   internet== PackageManager.PERMISSION_GRANTED
+                && writes==PackageManager.PERMISSION_GRANTED
+                && reads==PackageManager.PERMISSION_GRANTED;
+    }
+    private void requestPermission()
+    {
+        ActivityCompat.requestPermissions(ValidationActivity.this,new String[]
+                {
+                        Manifest.permission.INTERNET,
+
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE
+                },1);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode)
+        {
+            case 1:
+                Log.e("MGG",grantResults.length+"");
+                if (grantResults.length>0)
+                {
+                    boolean a=grantResults[0]==PackageManager.PERMISSION_GRANTED;
+                    boolean b=grantResults[1]==PackageManager.PERMISSION_GRANTED;
+                    boolean c=grantResults[2]==PackageManager.PERMISSION_GRANTED;
+
+                    Log.e("MGG",a+""+b+""+c+"");
+
+                    if (a && b && c)
+                        ;
+                    else
+                        finish();
+                }
+                break;
+        }
     }
 }
