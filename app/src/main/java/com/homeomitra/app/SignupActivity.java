@@ -286,7 +286,7 @@ public class SignupActivity extends AppCompatActivity {
                         String type = "PATIENT";
                         submit.setEnabled(false);
                         submit.setText("Creating...");
-                        String login_url = "https://3jnfpzq1q9.execute-api.ap-south-1.amazonaws.com/prod/HM_Login";
+                        String login_url = getResources().getString(R.string.HM_LOGIN_API);
                         JSONObject jsonObject= new JSONObject();
                         try {
                             jsonObject.put("MODE","SIGNUP");
@@ -435,7 +435,7 @@ public class SignupActivity extends AppCompatActivity {
                         String type = "DOCTOR";
                         submit.setEnabled(false);
                         submit.setText("Creating...");
-                        String login_url = "https://3jnfpzq1q9.execute-api.ap-south-1.amazonaws.com/prod/HM_Login";
+                        String login_url = getResources().getString(R.string.HM_LOGIN_API);
                         JSONObject jsonObject= new JSONObject();
                         Bitmap bm = null;
                         try {
@@ -604,7 +604,7 @@ public class SignupActivity extends AppCompatActivity {
                         String type = "PHARMACY";
                         submit.setEnabled(false);
                         submit.setText("Creating...");
-                        String login_url = "https://3jnfpzq1q9.execute-api.ap-south-1.amazonaws.com/prod/HM_Login";
+                        String login_url = getResources().getString(R.string.HM_LOGIN_API);
                         JSONObject jsonObject= new JSONObject();
                         try {
                             jsonObject.put("MODE","SIGNUP");

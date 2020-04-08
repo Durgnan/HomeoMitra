@@ -15,4 +15,9 @@
     <string name="home_second">Home Second</string>
     <string name="title_activity_patient_landing">PatientLandingActivity</string>
     <string name="title_activity_pharmacy_landing">PharmacyLandingActivity</string>
+
+
+
+
+    <string name="HM_LOGIN_API">ENTER_YOUR_API_HERE</string>
 </resources>

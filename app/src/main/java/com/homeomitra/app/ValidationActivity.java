@@ -81,7 +81,7 @@ public class ValidationActivity extends AppCompatActivity {
                     {
                         login.setEnabled(false);
                         login.setText("Verifying...");
-                        String login_url = "https://3jnfpzq1q9.execute-api.ap-south-1.amazonaws.com/prod/HM_Login";
+                        String login_url = getResources().getString(R.string.HM_LOGIN_API);
                         JSONObject jsonObject= new JSONObject();
                         try {
                             jsonObject.put("MODE","LOGIN");
