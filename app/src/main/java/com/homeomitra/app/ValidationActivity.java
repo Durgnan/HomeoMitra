@@ -141,10 +141,10 @@ public class ValidationActivity extends AppCompatActivity {
 
 
                                         login.setText("Good to go!");
-//                                        editor.putString("username",u);
-//                                        editor.putString("TYPE",type);
-//                                        editor.apply();
-//                                        editor.commit();
+                                        editor.putString("username",u);
+                                        editor.putString("TYPE",type);
+                                        editor.apply();
+                                        editor.commit();
                                         startActivity(intent);
                                         finish();
                                     }
